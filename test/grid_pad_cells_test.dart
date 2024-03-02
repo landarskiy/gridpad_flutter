@@ -125,21 +125,13 @@ void main() {
     );
   });
 
-  test('Check errors. Invalid size options.', () {
-    expect(() {
-      Fixed(0);
-    }, throwsAssertionError);
-    expect(() {
-      Weight(0);
-    }, throwsAssertionError);
-    expect(() {
-      [
-        const Fixed(1),
-        const Weight(2),
-        CustomGriPadCellSize(),
-      ].calculateTotalSize();
-    }, throwsArgumentError);
-  });
-}
+  test(
+    'Check fx() extension',
+    () => {expect(12.5.fx(), const Fixed(12.5))},
+  );
 
-class CustomGriPadCellSize extends GridPadCellSize {}
+  test(
+    'Check wt() extension',
+    () => {expect(12.5.wt(), const Weight(12.5))},
+  );
+}

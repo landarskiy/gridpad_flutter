@@ -25,14 +25,10 @@ class PinPad extends StatelessWidget {
           verticalPolicy: VerticalPolicy.bottomTop,
         ),
         children: [
-          Cell(
-            row: 3,
-            column: 1,
-            child: LargeTextPadButton(
-              '0',
-              onPressed: () => callback?.call('0'),
-            ),
-          ),
+          LargeTextPadButton(
+            '0',
+            onPressed: () => callback?.call('0'),
+          ).cell(row: 3, column: 1),
           PadThemeProvider(
             theme: PadButtonTheme(
               colors: PadButtonColors(

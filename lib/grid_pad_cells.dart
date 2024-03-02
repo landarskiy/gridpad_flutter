@@ -151,17 +151,13 @@ extension GridPadCellSizeExtension on Iterable<GridPadCellSize> {
     double totalWeightSize = 0;
     double totalFixedSize = 0;
     for (var cellSize in this) {
-      switch (cellSize.runtimeType) {
-        case Weight:
-          totalWeightSize += (cellSize as Weight).size;
+      switch (cellSize) {
+        case Weight():
+          totalWeightSize += cellSize.size;
           break;
-        case Fixed:
-          totalFixedSize += (cellSize as Fixed).size;
+        case Fixed():
+          totalFixedSize += cellSize.size;
           break;
-        default:
-          throw ArgumentError(
-            "Unknown type of cell size: ${cellSize.runtimeType}",
-          );
       }
     }
     return TotalSize(weight: totalWeightSize, fixed: totalFixedSize);
@@ -169,7 +165,7 @@ extension GridPadCellSizeExtension on Iterable<GridPadCellSize> {
 }
 
 /// Class describes grid cell size.
-abstract class GridPadCellSize {}
+sealed class GridPadCellSize {}
 
 /// Fixed grid cell size.
 class Fixed implements GridPadCellSize {
@@ -206,12 +202,12 @@ class Weight implements GridPadCellSize {
 extension FixedExtension on Fixed {
   /// Create a list with length [count] of fixed cell sizes with size [size].
   static List<GridPadCellSize> fixedSame(int count, double size) {
-    return List.generate(count, (index) => Fixed(size));
+    return List.generate(count, (index) => size.fx());
   }
 
   /// Create a list of fixed cell sizes with passed fixed [sizes].
   static List<GridPadCellSize> fixedSizes(List<double> sizes) {
-    return sizes.map((size) => Fixed(size)).toList();
+    return sizes.map((size) => size.fx()).toList();
   }
 }
 
@@ -219,11 +215,23 @@ extension WeightExtension on Weight {
   /// Create a list with length [count] of weight cell sizes with
   /// weight size [size].
   static List<GridPadCellSize> weightSame(int count, double size) {
-    return List.generate(count, (index) => Weight(size));
+    return List.generate(count, (index) => size.wt());
   }
 
   /// Create a list of weight cell sizes with passed weight [sizes].
   static List<GridPadCellSize> weightSizes(List<double> sizes) {
-    return sizes.map((size) => Weight(size)).toList();
+    return sizes.map((size) => size.wt()).toList();
+  }
+}
+
+extension CellSizeExtension on num {
+  /// Create [Fixed] cell size.
+  Fixed fx() {
+    return Fixed(toDouble());
+  }
+
+  /// Create [Weight] cell size.
+  Weight wt() {
+    return Weight(toDouble());
   }
 }

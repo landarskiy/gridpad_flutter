@@ -293,8 +293,8 @@ class CustomSizeBlueprintCard extends StatelessWidget {
       ratio: 1.5,
       child: GridPad(
         gridPadCells: GridPadCellsBuilder(rowCount: 3, columnCount: 4)
-            .rowSize(0, const Weight(2))
-            .columnSize(3, const Fixed(30))
+            .rowSize(0, 2.wt())
+            .columnSize(3, 30.fx())
             .build(),
         children: [for (var i = 0; i < 12; i++) const BlueprintBox()],
       ),

@@ -81,6 +81,18 @@ GridPad(
 );
 ```
 
+Instead of using `Weight` and `Fixed` explicitly, the appropriate extension functions can be used:
+
+```dart
+GridPad(
+  gridPadCells: GridPadCellsBuilder(rowCount: 3, columnCount: 4)
+    .rowSize(0, 2.wt())
+    .columnSize(3, 90.fx())
+    .build(),
+  children: [],
+);
+```
+
 ![custom_define_grid_dark](https://github.com/landarskiy/gridpad_flutter/assets/2251498/4a769913-c84d-427c-8f1b-10a1574d2bf2)
 
 The algorithm for allocating available space between cells:
@@ -132,6 +144,18 @@ GridPad(
       column: 1,
       child: ChildWidget(),
     ),
+  ],
+);
+```
+
+Alternatively, instead of the Cell widget, `Widget.cell()` extension functions can be applied:
+
+```dart
+GridPad(
+  gridPadCells: GridPadCells.gridSize(rowCount: 3, columnCount: 4),       
+  children: [
+    ChildWidget().cell(row: 1, column: 2),
+    ChildWidget().cell(row: 0, column: 1),
   ],
 );
 ```
@@ -216,13 +240,7 @@ GridPad(
   children: [
     // will be skipped in a drawing process because the item is placed in the column range [3;5] 
     // but the maximum allowable is 3
-    Cell(
-      row: 1,
-      column: 3
-      rowSpan: 1,
-      columnSpan: 3,
-      child: ChildWidget(),
-    ), 
+    ChildWidget().cell(row: 1, column: 3, rowSpan: 1, columnSpan: 3),
   ],
 );
 ```

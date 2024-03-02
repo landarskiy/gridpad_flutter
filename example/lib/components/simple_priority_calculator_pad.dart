@@ -19,22 +19,16 @@ class SimplePriorityCalculatorPad extends StatelessWidget {
       ),
       child: GridPad(
         gridPadCells: GridPadCellsBuilder(rowCount: 5, columnCount: 5)
-            .rowSize(0, const Fixed(48))
+            .rowSize(0, 48.fx())
             .build(),
         children: [
           _RemoveTheme(child: MediumTextPadButton('C', onPressed: () {})),
-          Cell.implicit(
-            columnSpan: 2,
-            child: _ActionTheme(
-              child: MediumTextPadButton('(', onPressed: () {}),
-            ),
-          ),
-          Cell.implicit(
-            columnSpan: 2,
-            child: _ActionTheme(
-              child: MediumTextPadButton(')', onPressed: () {}),
-            ),
-          ),
+          _ActionTheme(
+            child: MediumTextPadButton('(', onPressed: () {}),
+          ).implicitCell(columnSpan: 2),
+          _ActionTheme(
+            child: MediumTextPadButton(')', onPressed: () {}),
+          ).implicitCell(columnSpan: 2),
           LargeTextPadButton('7', onPressed: () {}),
           LargeTextPadButton('8', onPressed: () {}),
           LargeTextPadButton('9', onPressed: () {}),
@@ -43,38 +37,21 @@ class SimplePriorityCalculatorPad extends StatelessWidget {
           LargeTextPadButton('4', onPressed: () {}),
           LargeTextPadButton('5', onPressed: () {}),
           LargeTextPadButton('6', onPressed: () {}),
-          Cell.implicit(
-            rowSpan: 2,
-            child: _ActionTheme(
-              child: LargeTextPadButton('-', onPressed: () {}),
-            ),
-          ),
-          Cell.implicit(
-            rowSpan: 2,
-            child: _ActionTheme(
-              child: LargeTextPadButton('+', onPressed: () {}),
-            ),
-          ),
-          Cell(
-            row: 3,
-            column: 0,
-            child: LargeTextPadButton('1', onPressed: () {}),
-          ),
+          _ActionTheme(
+            child: LargeTextPadButton('-', onPressed: () {}),
+          ).implicitCell(rowSpan: 2),
+          _ActionTheme(
+            child: LargeTextPadButton('+', onPressed: () {}),
+          ).implicitCell(rowSpan: 2),
+          LargeTextPadButton('1', onPressed: () {}).cell(row: 3, column: 0),
           LargeTextPadButton('2', onPressed: () {}),
           LargeTextPadButton('3', onPressed: () {}),
-          Cell(
-            row: 4,
-            column: 0,
-            child: LargeTextPadButton('0', onPressed: () {}),
-          ),
+          LargeTextPadButton('0', onPressed: () {}).cell(row: 4, column: 0),
           LargeTextPadButton('.', onPressed: () {}),
           _RemoveTheme(child: IconPadButton(Icons.backspace, onPressed: () {})),
-          Cell.implicit(
-            columnSpan: 2,
-            child: _ActionTheme(
-              child: LargeTextPadButton('=', onPressed: () {}),
-            ),
-          ),
+          _ActionTheme(
+            child: LargeTextPadButton('=', onPressed: () {}),
+          ).implicitCell(columnSpan: 2),
         ],
       ),
     );

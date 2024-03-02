@@ -19,30 +19,21 @@ class EngineeringCalculatorPad extends StatelessWidget {
       ),
       child: GridPad(
         gridPadCells: GridPadCellsBuilder(rowCount: 5, columnCount: 5)
-            .rowSize(0, const Fixed(48))
+            .rowSize(0, 48.fx())
             .build(),
         children: [
           //BG space
-          Cell(
-            row: 1,
-            column: 0,
-            rowSpan: 4,
-            columnSpan: 3,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: padTheme.colors.numBackground,
-                shape: BoxShape.rectangle,
-                borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-              ),
-              child: Container(),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: padTheme.colors.numBackground,
+              shape: BoxShape.rectangle,
+              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
             ),
-          ),
-          Cell(
-            row: 0,
-            column: 0,
-            child: _FunctionTheme(
-                child: SmallTextPadButton('sin', onPressed: () {})),
-          ),
+            child: Container(),
+          ).cell(row: 1, column: 0, rowSpan: 4, columnSpan: 3),
+          _FunctionTheme(
+            child: SmallTextPadButton('sin', onPressed: () {}),
+          ).cell(row: 0, column: 0),
           _FunctionTheme(child: SmallTextPadButton('cos', onPressed: () {})),
           _FunctionTheme(child: SmallTextPadButton('log', onPressed: () {})),
           _FunctionTheme(child: SmallTextPadButton('π', onPressed: () {})),

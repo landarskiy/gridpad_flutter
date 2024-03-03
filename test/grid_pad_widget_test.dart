@@ -66,8 +66,8 @@ void main() {
           columnCount: columnCount,
         ),
         placementPolicy: placementPolicy,
-        children: const [
-          Cell.implicit(rowSpan: 2, columnSpan: 2, child: Text('0:0'))
+        children: [
+          const Text('0:0').implicitCell(rowSpan: 2, columnSpan: 2),
         ],
       ),
     );

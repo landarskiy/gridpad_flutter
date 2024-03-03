@@ -28,12 +28,12 @@ import 'package:grid_pad/grid_pad_cells.dart';
 void main() {
   test('Check equals and hashCode for the same GridPadCells', () {
     final left = GridPadCellsBuilder(rowCount: 2, columnCount: 4)
-        .columnSize(1, const Weight(2))
-        .rowSize(0, const Fixed(24))
+        .columnSize(1, 2.wt())
+        .rowSize(0, 24.fx())
         .build();
     final right = GridPadCellsBuilder(rowCount: 2, columnCount: 4)
-        .columnSize(1, const Weight(2))
-        .rowSize(0, const Fixed(24))
+        .columnSize(1, 2.wt())
+        .rowSize(0, 24.fx())
         .build();
     expect(left.hashCode, right.hashCode);
     expect(left, right);
@@ -52,11 +52,11 @@ void main() {
 
   test('Check internal fields', () {
     final cells = GridPadCellsBuilder(rowCount: 2, columnCount: 4)
-        .rowSize(0, const Weight(3))
-        .rowSize(1, const Fixed(24))
-        .columnSize(0, const Fixed(12))
-        .columnSize(1, const Weight(2))
-        .columnSize(2, const Fixed(10))
+        .rowSize(0, 3.wt())
+        .rowSize(1, 24.fx())
+        .columnSize(0, 12.fx())
+        .columnSize(1, 2.wt())
+        .columnSize(2, 10.fx())
         .build();
     expect(2, cells.rowCount);
     expect(4, cells.columnCount);
@@ -64,13 +64,8 @@ void main() {
     expect(3, cells.rowsTotalSize.weight);
     expect(22, cells.columnsTotalSize.fixed);
     expect(3, cells.columnsTotalSize.weight);
-    expect([const Weight(3), const Fixed(24)], cells.rowSizes);
-    expect([
-      const Fixed(12),
-      const Weight(2),
-      const Fixed(10),
-      const Weight(1),
-    ], cells.columnSizes);
+    expect([3.wt(), 24.fx()], cells.rowSizes);
+    expect([12.fx(), 2.wt(), 10.fx(), 1.wt()], cells.columnSizes);
   });
 
   test('Check constructors of GridPadCells', () {
@@ -87,28 +82,28 @@ void main() {
 
   test('Check GridPadCellsBuilder methods', () {
     final actual = GridPadCellsBuilder(rowCount: 2, columnCount: 3)
-        .rowSize(0, const Fixed(30))
-        .rowSize(1, const Fixed(30))
-        .columnSize(0, const Weight(2))
-        .columnSize(1, const Weight(2))
-        .columnSize(2, const Weight(2))
+        .rowSize(0, 30.fx())
+        .rowSize(1, 30.fx())
+        .columnSize(0, 2.wt())
+        .columnSize(1, 2.wt())
+        .columnSize(2, 2.wt())
         .build();
     final expected = GridPadCellsBuilder(rowCount: 2, columnCount: 3)
-        .rowsSize(const Fixed(30))
-        .columnsSize(const Weight(2))
+        .rowsSize(30.fx())
+        .columnsSize(2.wt())
         .build();
     expect(actual, expected);
   });
 
   test('Check extensions', () {
-    expect([const Fixed(1), const Fixed(1)], FixedExtension.fixedSame(2, 1));
-    expect([const Fixed(1), const Fixed(2)], FixedExtension.fixedSizes([1, 2]));
+    expect([1.fx(), 1.fx()], FixedExtension.fixedSame(2, 1));
+    expect([1.fx(), 2.fx()], FixedExtension.fixedSizes([1, 2]));
     expect(
-      [const Weight(0.5), const Weight(0.5)],
+      [0.5.wt(), 0.5.wt()],
       WeightExtension.weightSame(2, 0.5),
     );
     expect(
-      [const Weight(0.5), const Weight(1.5)],
+      [0.5.wt(), 1.5.wt()],
       WeightExtension.weightSizes([0.5, 1.5]),
     );
   });
@@ -116,22 +111,17 @@ void main() {
   test('Check total size calculation', () {
     expect(
       const TotalSize(weight: 3, fixed: 22),
-      [
-        const Fixed(12),
-        const Weight(2),
-        const Fixed(10),
-        const Weight(1),
-      ].calculateTotalSize(),
+      [12.fx(), 2.wt(), 10.fx(), 1.wt()].calculateTotalSize(),
     );
   });
 
   test(
     'Check fx() extension',
-    () => {expect(12.5.fx(), const Fixed(12.5))},
+    () => {expect(12.5.fx(), 12.5.fx())},
   );
 
   test(
     'Check wt() extension',
-    () => {expect(12.5.wt(), const Weight(12.5))},
+    () => {expect(12.5.wt(), 12.5.wt())},
   );
 }

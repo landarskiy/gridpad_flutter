@@ -7,7 +7,7 @@ import 'pad_button.dart';
 class PinPad extends StatelessWidget {
   final PadActionCallback? callback;
 
-  const PinPad({Key? key, this.callback}) : super(key: key);
+  const PinPad({super.key, this.callback});
 
   @override
   Widget build(BuildContext context) {

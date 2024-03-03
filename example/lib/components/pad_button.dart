@@ -7,9 +7,9 @@ class IconPadButton extends StatelessWidget {
 
   const IconPadButton(
     this.iconData, {
-    Key? key,
+    super.key,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +31,9 @@ class LargeTextPadButton extends StatelessWidget {
 
   const LargeTextPadButton(
     this.text, {
-    Key? key,
+    super.key,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +51,9 @@ class MediumTextPadButton extends StatelessWidget {
 
   const MediumTextPadButton(
     this.text, {
-    Key? key,
+    super.key,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +71,9 @@ class SmallTextPadButton extends StatelessWidget {
 
   const SmallTextPadButton(
     this.text, {
-    Key? key,
+    super.key,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -91,11 +91,11 @@ class TextPadButton extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const TextPadButton({
-    Key? key,
+    super.key,
     required this.text,
     this.style,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -115,8 +115,7 @@ class PadButton extends StatelessWidget {
   final Widget child;
   final VoidCallback? onPressed;
 
-  const PadButton({Key? key, this.onPressed, required this.child})
-      : super(key: key);
+  const PadButton({super.key, this.onPressed, required this.child});
 
   @override
   Widget build(BuildContext context) {

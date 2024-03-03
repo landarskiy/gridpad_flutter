@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
 }
 
 class ListOfPads extends StatelessWidget {
-  const ListOfPads({Key? key}) : super(key: key);
+  const ListOfPads({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -84,10 +84,10 @@ class PadCard extends StatelessWidget {
   final Widget child;
 
   const PadCard({
-    Key? key,
+    super.key,
     required this.ratio,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -112,11 +112,11 @@ class BlueprintCard extends StatelessWidget {
   final Widget child;
 
   const BlueprintCard({
-    Key? key,
+    super.key,
     this.ratio = 1,
     this.title,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -156,10 +156,10 @@ class WeightGrid extends StatelessWidget {
   final int columnCount;
 
   const WeightGrid({
-    Key? key,
+    super.key,
     required this.rowCount,
     required this.columnCount,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +176,7 @@ class WeightGrid extends StatelessWidget {
 }
 
 class InteractivePinPadCard extends StatelessWidget {
-  const InteractivePinPadCard({Key? key}) : super(key: key);
+  const InteractivePinPadCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -202,7 +202,7 @@ class InteractivePinPadCard extends StatelessWidget {
 }
 
 class EngineeringCalculatorPadCard extends StatelessWidget {
-  const EngineeringCalculatorPadCard({Key? key}) : super(key: key);
+  const EngineeringCalculatorPadCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -226,7 +226,7 @@ class EngineeringCalculatorPadCard extends StatelessWidget {
 }
 
 class SimplePriorityCalculatorPadCard extends StatelessWidget {
-  const SimplePriorityCalculatorPadCard({Key? key}) : super(key: key);
+  const SimplePriorityCalculatorPadCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -248,7 +248,7 @@ class SimplePriorityCalculatorPadCard extends StatelessWidget {
 }
 
 class SimpleCalculatorPadCard extends StatelessWidget {
-  const SimpleCalculatorPadCard({Key? key}) : super(key: key);
+  const SimpleCalculatorPadCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -270,7 +270,7 @@ class SimpleCalculatorPadCard extends StatelessWidget {
 }
 
 class SimpleBlueprintCard extends StatelessWidget {
-  const SimpleBlueprintCard({Key? key}) : super(key: key);
+  const SimpleBlueprintCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -285,7 +285,7 @@ class SimpleBlueprintCard extends StatelessWidget {
 }
 
 class CustomSizeBlueprintCard extends StatelessWidget {
-  const CustomSizeBlueprintCard({Key? key}) : super(key: key);
+  const CustomSizeBlueprintCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -303,7 +303,7 @@ class CustomSizeBlueprintCard extends StatelessWidget {
 }
 
 class SimpleBlueprintCardWithContent extends StatelessWidget {
-  const SimpleBlueprintCardWithContent({Key? key}) : super(key: key);
+  const SimpleBlueprintCardWithContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -331,7 +331,7 @@ class SimpleBlueprintCardWithContent extends StatelessWidget {
 }
 
 class SimpleBlueprintCardWithContentMixOrdering extends StatelessWidget {
-  const SimpleBlueprintCardWithContentMixOrdering({Key? key}) : super(key: key);
+  const SimpleBlueprintCardWithContentMixOrdering({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -367,7 +367,7 @@ class SimpleBlueprintCardWithContentMixOrdering extends StatelessWidget {
 }
 
 class SimpleBlueprintCardWithSpansOverlapped extends StatelessWidget {
-  const SimpleBlueprintCardWithSpansOverlapped({Key? key}) : super(key: key);
+  const SimpleBlueprintCardWithSpansOverlapped({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -411,8 +411,7 @@ class SimpleBlueprintCardPolicy extends StatelessWidget {
 
   const SimpleBlueprintCardPolicy(
       this.mainAxis, this.horizontalPolicy, this.verticalPolicy,
-      {Key? key})
-      : super(key: key);
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -448,7 +447,7 @@ class SimpleBlueprintCardPolicy extends StatelessWidget {
 }
 
 class SimpleBlueprintCardPolicyHorizontalSeTb extends StatelessWidget {
-  const SimpleBlueprintCardPolicyHorizontalSeTb({Key? key}) : super(key: key);
+  const SimpleBlueprintCardPolicyHorizontalSeTb({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -461,8 +460,7 @@ class SimpleBlueprintCardPolicyHorizontalSeTb extends StatelessWidget {
 }
 
 class SimpleBlueprintCardPolicyHorizontalSeTbRtl extends StatelessWidget {
-  const SimpleBlueprintCardPolicyHorizontalSeTbRtl({Key? key})
-      : super(key: key);
+  const SimpleBlueprintCardPolicyHorizontalSeTbRtl({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -474,7 +472,7 @@ class SimpleBlueprintCardPolicyHorizontalSeTbRtl extends StatelessWidget {
 }
 
 class SimpleBlueprintCardPolicyHorizontalEsTb extends StatelessWidget {
-  const SimpleBlueprintCardPolicyHorizontalEsTb({Key? key}) : super(key: key);
+  const SimpleBlueprintCardPolicyHorizontalEsTb({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -487,7 +485,7 @@ class SimpleBlueprintCardPolicyHorizontalEsTb extends StatelessWidget {
 }
 
 class SimpleBlueprintCardPolicyHorizontalSeBt extends StatelessWidget {
-  const SimpleBlueprintCardPolicyHorizontalSeBt({Key? key}) : super(key: key);
+  const SimpleBlueprintCardPolicyHorizontalSeBt({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -500,7 +498,7 @@ class SimpleBlueprintCardPolicyHorizontalSeBt extends StatelessWidget {
 }
 
 class SimpleBlueprintCardPolicyHorizontalEsBt extends StatelessWidget {
-  const SimpleBlueprintCardPolicyHorizontalEsBt({Key? key}) : super(key: key);
+  const SimpleBlueprintCardPolicyHorizontalEsBt({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -513,7 +511,7 @@ class SimpleBlueprintCardPolicyHorizontalEsBt extends StatelessWidget {
 }
 
 class SimpleBlueprintCardPolicyVerticalSeTb extends StatelessWidget {
-  const SimpleBlueprintCardPolicyVerticalSeTb({Key? key}) : super(key: key);
+  const SimpleBlueprintCardPolicyVerticalSeTb({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -526,7 +524,7 @@ class SimpleBlueprintCardPolicyVerticalSeTb extends StatelessWidget {
 }
 
 class SimpleBlueprintCardPolicyVerticalEsTb extends StatelessWidget {
-  const SimpleBlueprintCardPolicyVerticalEsTb({Key? key}) : super(key: key);
+  const SimpleBlueprintCardPolicyVerticalEsTb({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -539,7 +537,7 @@ class SimpleBlueprintCardPolicyVerticalEsTb extends StatelessWidget {
 }
 
 class SimpleBlueprintCardPolicyVerticalSeBt extends StatelessWidget {
-  const SimpleBlueprintCardPolicyVerticalSeBt({Key? key}) : super(key: key);
+  const SimpleBlueprintCardPolicyVerticalSeBt({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -552,7 +550,7 @@ class SimpleBlueprintCardPolicyVerticalSeBt extends StatelessWidget {
 }
 
 class SimpleBlueprintCardPolicyVerticalEsBt extends StatelessWidget {
-  const SimpleBlueprintCardPolicyVerticalEsBt({Key? key}) : super(key: key);
+  const SimpleBlueprintCardPolicyVerticalEsBt({super.key});
 
   @override
   Widget build(BuildContext context) {

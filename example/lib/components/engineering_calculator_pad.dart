@@ -5,7 +5,7 @@ import 'package:grid_pad/grid_pad.dart';
 import 'pad_button.dart';
 
 class EngineeringCalculatorPad extends StatelessWidget {
-  const EngineeringCalculatorPad({Key? key}) : super(key: key);
+  const EngineeringCalculatorPad({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +124,7 @@ class EngineeringCalculatorPadTheme {
 class _FunctionTheme extends StatelessWidget {
   final Widget child;
 
-  const _FunctionTheme({Key? key, required this.child}) : super(key: key);
+  const _FunctionTheme({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +144,7 @@ class _FunctionTheme extends StatelessWidget {
 class _ActionTheme extends StatelessWidget {
   final Widget child;
 
-  const _ActionTheme({Key? key, required this.child}) : super(key: key);
+  const _ActionTheme({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -164,7 +164,7 @@ class _ActionTheme extends StatelessWidget {
 class _RemoveTheme extends StatelessWidget {
   final Widget child;
 
-  const _RemoveTheme({Key? key, required this.child}) : super(key: key);
+  const _RemoveTheme({required this.child});
 
   @override
   Widget build(BuildContext context) {

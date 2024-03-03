@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'pin_pad.dart';
 
 class InteractivePinPad extends StatefulWidget {
-  const InteractivePinPad({Key? key}) : super(key: key);
+  const InteractivePinPad({super.key});
 
   @override
   State<InteractivePinPad> createState() => _InteractivePinPadState();

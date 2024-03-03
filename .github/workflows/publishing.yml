@@ -10,4 +10,4 @@ jobs:
   publish:
     permissions:
       id-token: write
-    uses: touchlane/gridpad_flutter/.github/workflows/publishing_to_pub.yml@v1
+    uses: touchlane/gridpad_flutter/.github/workflows/publishing_to_pub.yml@master

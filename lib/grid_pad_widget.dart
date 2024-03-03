@@ -223,15 +223,14 @@ class GridPad extends StatelessWidget {
   final PlacementStrategy _placementStrategy;
 
   GridPad({
-    Key? key,
+    super.key,
     required this.gridPadCells,
     required List<Widget> children,
     this.placementPolicy = GridPadPlacementPolicy.defaultPolicy,
   })  : _placementStrategy = GridPlacementStrategy(
           gridPadCells,
           placementPolicy,
-        ),
-        super(key: key) {
+        ) {
     for (var contentCell in children) {
       final Cell cell;
       if (contentCell is Cell) {

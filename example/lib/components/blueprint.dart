@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme.dart';
 
 class BlueprintBox extends StatelessWidget {
-  const BlueprintBox({Key? key}) : super(key: key);
+  const BlueprintBox({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class BlueprintBox extends StatelessWidget {
 class ContentBlueprintBox extends StatelessWidget {
   final String text;
 
-  const ContentBlueprintBox({Key? key, this.text = ''}) : super(key: key);
+  const ContentBlueprintBox({super.key, this.text = ''});
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:grid_pad/grid_pad.dart';
 import 'pad_button.dart';
 
 class SimpleCalculatorPad extends StatelessWidget {
-  const SimpleCalculatorPad({Key? key}) : super(key: key);
+  const SimpleCalculatorPad({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,21 +35,11 @@ class SimpleCalculatorPad extends StatelessWidget {
           LargeTextPadButton('1', onPressed: () {}),
           LargeTextPadButton('2', onPressed: () {}),
           LargeTextPadButton('3', onPressed: () {}),
-          Cell.implicit(
-            rowSpan: 2,
-            child: _ActionTheme(
-              child: LargeTextPadButton('=', onPressed: () {}),
-            ),
-          ),
-          Cell(
-            row: 4,
-            column: 0,
-            child: LargeTextPadButton('.', onPressed: () {}),
-          ),
-          Cell.implicit(
-            columnSpan: 2,
-            child: LargeTextPadButton('0', onPressed: () {}),
-          ),
+          _ActionTheme(
+            child: LargeTextPadButton('=', onPressed: () {}),
+          ).implicitCell(rowSpan: 2),
+          LargeTextPadButton('.', onPressed: () {}).cell(row: 4, column: 0),
+          LargeTextPadButton('0', onPressed: () {}).implicitCell(columnSpan: 2),
         ],
       ),
     );
@@ -115,7 +105,7 @@ extension _ThemeExtension on BuildContext {
 class _ActionTheme extends StatelessWidget {
   final Widget child;
 
-  const _ActionTheme({Key? key, required this.child}) : super(key: key);
+  const _ActionTheme({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +125,7 @@ class _ActionTheme extends StatelessWidget {
 class _RemoveTheme extends StatelessWidget {
   final Widget child;
 
-  const _RemoveTheme({Key? key, required this.child}) : super(key: key);
+  const _RemoveTheme({required this.child});
 
   @override
   Widget build(BuildContext context) {

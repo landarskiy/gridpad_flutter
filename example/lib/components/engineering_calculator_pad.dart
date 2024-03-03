@@ -5,7 +5,7 @@ import 'package:grid_pad/grid_pad.dart';
 import 'pad_button.dart';
 
 class EngineeringCalculatorPad extends StatelessWidget {
-  const EngineeringCalculatorPad({Key? key}) : super(key: key);
+  const EngineeringCalculatorPad({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,30 +19,21 @@ class EngineeringCalculatorPad extends StatelessWidget {
       ),
       child: GridPad(
         gridPadCells: GridPadCellsBuilder(rowCount: 5, columnCount: 5)
-            .rowSize(0, const Fixed(48))
+            .rowSize(0, 48.fx())
             .build(),
         children: [
           //BG space
-          Cell(
-            row: 1,
-            column: 0,
-            rowSpan: 4,
-            columnSpan: 3,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: padTheme.colors.numBackground,
-                shape: BoxShape.rectangle,
-                borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-              ),
-              child: Container(),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: padTheme.colors.numBackground,
+              shape: BoxShape.rectangle,
+              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
             ),
-          ),
-          Cell(
-            row: 0,
-            column: 0,
-            child: _FunctionTheme(
-                child: SmallTextPadButton('sin', onPressed: () {})),
-          ),
+            child: Container(),
+          ).cell(row: 1, column: 0, rowSpan: 4, columnSpan: 3),
+          _FunctionTheme(
+            child: SmallTextPadButton('sin', onPressed: () {}),
+          ).cell(row: 0, column: 0),
           _FunctionTheme(child: SmallTextPadButton('cos', onPressed: () {})),
           _FunctionTheme(child: SmallTextPadButton('log', onPressed: () {})),
           _FunctionTheme(child: SmallTextPadButton('π', onPressed: () {})),
@@ -133,7 +124,7 @@ class EngineeringCalculatorPadTheme {
 class _FunctionTheme extends StatelessWidget {
   final Widget child;
 
-  const _FunctionTheme({Key? key, required this.child}) : super(key: key);
+  const _FunctionTheme({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -153,7 +144,7 @@ class _FunctionTheme extends StatelessWidget {
 class _ActionTheme extends StatelessWidget {
   final Widget child;
 
-  const _ActionTheme({Key? key, required this.child}) : super(key: key);
+  const _ActionTheme({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -173,7 +164,7 @@ class _ActionTheme extends StatelessWidget {
 class _RemoveTheme extends StatelessWidget {
   final Widget child;
 
-  const _RemoveTheme({Key? key, required this.child}) : super(key: key);
+  const _RemoveTheme({required this.child});
 
   @override
   Widget build(BuildContext context) {

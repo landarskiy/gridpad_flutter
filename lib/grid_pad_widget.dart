@@ -70,6 +70,40 @@ class Cell extends ProxyWidget {
   }
 }
 
+extension CellExtension on Widget {
+  /// Wrap the Widget in a Cell
+  Cell cell({
+    Key? key,
+    required int row,
+    required int column,
+    int rowSpan = 1,
+    int columnSpan = 1,
+  }) {
+    return Cell(
+      key: key,
+      row: row,
+      column: column,
+      rowSpan: rowSpan,
+      columnSpan: columnSpan,
+      child: this,
+    );
+  }
+
+  /// Wrap the Widget in a implicit Cell
+  Cell implicitCell({
+    Key? key,
+    int rowSpan = 1,
+    int columnSpan = 1,
+  }) {
+    return Cell.implicit(
+      key: key,
+      rowSpan: rowSpan,
+      columnSpan: columnSpan,
+      child: this,
+    );
+  }
+}
+
 class _CellElement extends ProxyElement {
   _CellElement(super.widget);
 
@@ -161,15 +195,11 @@ class _GridPadDelegate extends MultiChildLayoutDelegate {
   ) {
     final availableWeight = availableSize - totalSize.fixed;
     return cellSizes.map((cellSize) {
-      switch (cellSize.runtimeType) {
-        case Fixed:
-          return (cellSize as Fixed).size;
-        case Weight:
-          return availableWeight * (cellSize as Weight).size / totalSize.weight;
-        default:
-          throw ArgumentError(
-            "Unknown type of cell size: ${cellSize.runtimeType}",
-          );
+      switch (cellSize) {
+        case Fixed():
+          return cellSize.size;
+        case Weight():
+          return availableWeight * cellSize.size / totalSize.weight;
       }
     }).toList();
   }
@@ -193,15 +223,14 @@ class GridPad extends StatelessWidget {
   final PlacementStrategy _placementStrategy;
 
   GridPad({
-    Key? key,
+    super.key,
     required this.gridPadCells,
     required List<Widget> children,
     this.placementPolicy = GridPadPlacementPolicy.defaultPolicy,
-  })  : _placementStrategy = GridPlacementStrategy(
+  }) : _placementStrategy = GridPlacementStrategy(
           gridPadCells,
           placementPolicy,
-        ),
-        super(key: key) {
+        ) {
     for (var contentCell in children) {
       final Cell cell;
       if (contentCell is Cell) {

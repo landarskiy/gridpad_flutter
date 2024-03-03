@@ -7,7 +7,7 @@ import 'pad_button.dart';
 class PinPad extends StatelessWidget {
   final PadActionCallback? callback;
 
-  const PinPad({Key? key, this.callback}) : super(key: key);
+  const PinPad({super.key, this.callback});
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +25,10 @@ class PinPad extends StatelessWidget {
           verticalPolicy: VerticalPolicy.bottomTop,
         ),
         children: [
-          Cell(
-            row: 3,
-            column: 1,
-            child: LargeTextPadButton(
-              '0',
-              onPressed: () => callback?.call('0'),
-            ),
-          ),
+          LargeTextPadButton(
+            '0',
+            onPressed: () => callback?.call('0'),
+          ).cell(row: 3, column: 1),
           PadThemeProvider(
             theme: PadButtonTheme(
               colors: PadButtonColors(

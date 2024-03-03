@@ -227,7 +227,7 @@ class GridPad extends StatelessWidget {
     required this.gridPadCells,
     required List<Widget> children,
     this.placementPolicy = GridPadPlacementPolicy.defaultPolicy,
-  })  : _placementStrategy = GridPlacementStrategy(
+  }) : _placementStrategy = GridPlacementStrategy(
           gridPadCells,
           placementPolicy,
         ) {
